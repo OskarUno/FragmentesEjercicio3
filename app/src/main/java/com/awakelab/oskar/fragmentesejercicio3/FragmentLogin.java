@@ -3,18 +3,22 @@ package com.awakelab.oskar.fragmentesejercicio3;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.awakelab.oskar.fragmentesejercicio3.databinding.ActivityMainBinding;
+import com.awakelab.oskar.fragmentesejercicio3.databinding.FragmentLoginBinding;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentLogin#newInstance} factory method to
+ * Use the  factory method to
  * create an instance of this fragment.
  */
 public class FragmentLogin extends Fragment {
-
+    private FragmentLoginBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,6 +45,14 @@ public class FragmentLogin extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+
+        binding = FragmentLoginBinding.inflate(getLayoutInflater(), container, false);
+        binding.btnComenzar.setOnClickListener(v -> {
+            String nombre = binding.editTextNombre.getText().toString();
+            Bundle bundle = new Bundle();
+            bundle.putString("nombre",nombre);
+            Navigation.findNavController(getView()).navigate(R.id.action_fragmentLogin_to_fragmentPregunta, bundle);
+        });
+        return binding.getRoot();
     }
 }

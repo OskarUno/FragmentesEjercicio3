@@ -34,17 +34,19 @@
         android:id="@+id/imageView"
         android:layout_width="218dp"
         android:layout_height="230dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/pikachu_seeklogo_com"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewHola" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHola" />
 
     <RadioGroup
         android:layout_width="341dp"
         android:layout_height="199dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="423dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHola2">
 
         <RadioButton
             android:id="@+id/rBtnCharmander"

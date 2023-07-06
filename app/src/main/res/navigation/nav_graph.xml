@@ -9,15 +9,27 @@
         android:id="@+id/fragmentLogin"
         android:name="com.awakelab.oskar.fragmentesejercicio3.FragmentLogin"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentPregunta"
+            app:destination="@id/fragmentPregunta" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentPregunta"
         android:name="com.awakelab.oskar.fragmentesejercicio3.FragmentPregunta"
         android:label="fragment_pregunta"
-        tools:layout="@layout/fragment_pregunta" />
+        tools:layout="@layout/fragment_pregunta" >
+        <action
+            android:id="@+id/action_fragmentPregunta_to_fragmentResultado"
+            app:destination="@id/fragmentResultado" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentResultado"
         android:name="com.awakelab.oskar.fragmentesejercicio3.FragmentResultado"
         android:label="fragment_resultado"
-        tools:layout="@layout/fragment_resultado" />
+        tools:layout="@layout/fragment_resultado" >
+        <action
+            android:id="@+id/action_fragmentResultado_to_fragmentPregunta"
+            app:destination="@id/fragmentPregunta" />
+    </fragment>
 </navigation>
