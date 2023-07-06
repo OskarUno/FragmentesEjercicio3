@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentPregunta" >
+
+    <TextView
+        android:id="@+id/textViewHola2"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="¿Quien es este Pokemon?"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textViewHola"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Hola"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="218dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="86dp"
+        android:src="@drawable/pikachu_seeklogo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewHola" />
+
+    <RadioGroup
+        android:layout_width="341dp"
+        android:layout_height="199dp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="423dp">
+
+        <RadioButton
+            android:id="@+id/rBtnCharmander"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Charmander" />
+
+        <RadioButton
+            android:id="@+id/rBtnPikachu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pikachu" />
+
+        <RadioButton
+            android:id="@+id/rBtnOnix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Onix" />
+
+        <RadioButton
+            android:id="@+id/rBtnCharmilion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Charmilion" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
