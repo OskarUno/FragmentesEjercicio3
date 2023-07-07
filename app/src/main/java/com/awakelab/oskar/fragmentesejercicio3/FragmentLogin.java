@@ -1,15 +1,13 @@
 package com.awakelab.oskar.fragmentesejercicio3;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.awakelab.oskar.fragmentesejercicio3.databinding.ActivityMainBinding;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.awakelab.oskar.fragmentesejercicio3.databinding.FragmentLoginBinding;
 
 /**
@@ -50,7 +48,7 @@ public class FragmentLogin extends Fragment {
         binding.btnComenzar.setOnClickListener(v -> {
             String nombre = binding.editTextNombre.getText().toString();
             Bundle bundle = new Bundle();
-            bundle.putString("nombre",nombre);
+            bundle.putString("nombre", nombre);
             Navigation.findNavController(getView()).navigate(R.id.action_fragmentLogin_to_fragmentPregunta, bundle);
         });
         return binding.getRoot();

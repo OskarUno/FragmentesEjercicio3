@@ -1,12 +1,12 @@
 package com.awakelab.oskar.fragmentesejercicio3;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.awakelab.oskar.fragmentesejercicio3.databinding.FragmentPreguntaBinding;
 
@@ -62,8 +62,21 @@ public class FragmentPregunta extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentPreguntaBinding.inflate(getLayoutInflater(),container,false);
+        binding = FragmentPreguntaBinding.inflate(getLayoutInflater(), container, false);
         binding.textViewHola.setText("Hola " + mParam1);
-  return  binding.getRoot();
+
+        binding.btnComprobar.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            boolean resultado = false;
+            if (binding.radioGroup.getCheckedRadioButtonId() == binding.rBtnPikachu.getId()) {
+                resultado = true;
+            }
+            bundle.putBoolean("resultado", resultado);
+            bundle.putString("nombre",mParam1);
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_fragmentPregunta_to_fragmentResultado, bundle);
+        });
+        return binding.getRoot();
     }
+
+
 }

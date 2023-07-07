@@ -1,12 +1,14 @@
 package com.awakelab.oskar.fragmentesejercicio3;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import com.awakelab.oskar.fragmentesejercicio3.databinding.FragmentResultadoBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,14 +16,14 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentResultado extends Fragment {
-
+    private FragmentResultadoBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private boolean mParam1;
     private String mParam2;
 
     public FragmentResultado() {
@@ -38,27 +40,39 @@ public class FragmentResultado extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentResultado newInstance(String param1, String param2) {
-        FragmentResultado fragment = new FragmentResultado();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+       FragmentResultado fragment = new FragmentResultado();
+       Bundle args = new Bundle();
+       args.putString(ARG_PARAM1, param1);
+       args.putString(ARG_PARAM2, param2);
+       fragment.setArguments(args);
+       return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getBoolean("resultado");
+            mParam2 = getArguments().getString("nombre");
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Bundle bundle = new Bundle();
+        bundle.putString("nombre", mParam2);
+        binding = FragmentResultadoBinding.inflate(getLayoutInflater(), container, false);
+        if (mParam1) {
+            binding.textRespuesta.setText("Correcto "+ mParam2);
+
+        } else {
+            binding.textRespuesta.setText("Incorrecto "+ mParam2);
+        }
+
+        binding.btnIntentalo.setOnClickListener(v -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_fragmentResultado_to_fragmentPregunta,bundle);
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_resultado, container, false);
+        return binding.getRoot();
     }
 }

@@ -18,10 +18,10 @@
 
     <TextView
         android:id="@+id/textRespuesta"
-        android:layout_width="171dp"
-        android:layout_height="85dp"
+        android:layout_width="291dp"
+        android:layout_height="66dp"
         android:gravity="center"
-        android:text="TextView"
+        android:text="TextViewRespuesta"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
